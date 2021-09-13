@@ -113,6 +113,7 @@ def getSpell(j, database):
     cur = con.cursor()
     cur.execute('INSERT INTO SpellsList VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)', dataForTable)
 
+
 class color:
    PURPLE = '\033[95m'
    CYAN = '\033[96m'
