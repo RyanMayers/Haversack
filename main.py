@@ -1,18 +1,20 @@
-from tkinter import *
-from tkinter import ttk
+import Spell
+import requests, json
+import rolldice as d
+import ability
+# url = "https://www.dnd5eapi.co/api/spells/"
+# jsonAllSpells = requests.request("GET", url).json()
+# spellList = []
+# for i in jsonAllSpells["results"]:
+#     spellList.append(i["index"])
+# for i in spellList:
+#     Spell.printSpell(i)
 
-# programming sucks i hate this why do i have to do all the thinking for the computer it's supposed to do it for me what the fuck
+# https://github.com/Fiona1729/py-rolldice found a dice library
 
-root = Tk()
-root.geometry("100x100")
-root.title("peepee poopoo")
+# class Character:
+#     def __init__(self, file):
+        
+glyn = ability.Character("Glynlamin",  [16,8,15,10,18,7], 3, ["Perception", "Insight", "Survival"], "GREEN")
 
-frame = Frame(root)
-frame.pack()
-
-button = Button(root, text="press this and i die instantly",
-                command = root.destroy)
-
-button.pack(side='top')
-
-root.mainloop()
+print(glyn.check("wis"))
