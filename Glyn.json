@@ -1,0 +1,19 @@
+{
+    "0": {
+        "name": "Glynlamin",
+        "playerName": "Ryan",
+        "class": {
+            "mainClass": "Druid",
+            "level": "5",
+            "subclass": "Circle of Wildfire"
+        },
+        "stats": {
+            "Strength": 16,
+            "Dexterity": 8,
+            "Constitution": 15,
+            "Intelligence": 10,
+            "Wisdom": 18,
+            "Charisma": 7
+        }
+    }
+}
