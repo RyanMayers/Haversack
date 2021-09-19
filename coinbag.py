@@ -1,15 +1,15 @@
 from consts import coinValue
 
-def addCoins(Copper = 0, Silver = 0, Electrum = 0, Gold = 0, Platinum = 0):
+def rawWealth(Copper = 0, Silver = 0, Electrum = 0, Gold = 0, Platinum = 0):
     newWealth = 0
-    newWealth += (Copper) + (Silver * 10) + (Electrum * 50) + (Gold * 100) + (Platinum * 1000)
+    newWealth += ((Copper) + (Silver * 10) + (Electrum * 50) + (Gold * 100) + (Platinum * 1000))
     return newWealth
 
 def sortCoins(Copper = 0, Silver = 0, Electrum = 0, Gold = 0, Platinum = 0):
     # 1,000 Copper = 100 Silver = 50 Electrum = 10 Gold = 1 Platinum
     
     # First, convert all wealth to the smallest value, copper.
-    totalWealth = addCoins(Copper, Silver, Electrum, Gold, Platinum)
+    totalWealth = rawWealth(Copper, Silver, Electrum, Gold, Platinum)
 
     # Now give us a list to iterate through
     coinIDs = ["pp", "gp", "ep", "sp", "cp"]

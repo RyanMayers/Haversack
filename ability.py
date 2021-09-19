@@ -20,19 +20,27 @@ def getSkillCheckRoll(self, check, advantage):
     # Skill Check
     if check in skills:
         # Header Print for Skill Check
-        print(f"\n\n{self.pname} Skill Check: {color.BOLD}{check}{color.END}")
         for i in categories:
             if check in categories[i]:
                 mod = abilityMod(self.abilities[i])
         if check in self.proficiencies:
             mod += self.pb
-        return rolldice.roll_dice(f'{num}d20{adv} + {mod}')
+        modStr = f"{str(mod)}"
+        if mod >= 0:
+            modStr = f"+{str(mod)}"
+        print(f"\n\n{self.pname} Skill Check: {color.BOLD}{check}{color.END} ({modStr})")
+        roll = rolldice.roll_dice(f'{num}d20{adv} + {mod}')
+        print(bigNums[roll[0]])
     
     # Ability Check
     elif check in abilities:
-        print(f"\n\n{self.pname} Ability Check: {color.BOLD}{ablLong[check]}{color.END}")
         mod = abilityMod(self.abilities[check])
-        return rolldice.roll_dice(f'{num}d20{adv} + {mod}')
+        modStr = f"{str(mod)}"
+        if mod >= 0:
+            modStr = f"+{str(mod)}"
+        print(f"\n\n{self.pname} Ability Check: {color.BOLD}{ablLong[check]}{color.END} ({modStr})")
+        roll = rolldice.roll_dice(f'{num}d20{adv} + {mod}')
+        print(bigNums[roll[0]])
     
     # Unrecognized Input
     else:
