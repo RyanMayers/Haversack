@@ -1,0 +1,1 @@
+# Create a CSV with spell slots per level by class.

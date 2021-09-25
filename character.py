@@ -2,34 +2,36 @@ import consts
 from consts import color
 from consts import text
 import ability
-import coinbag
-import gameClasses
+from countables import coinbag, inventory
+from gameClasses import classBasics
 
 class Character:
-    def __init__(self, name, gameclass, stats: list, profList: list, level = 1, favColor = "GREEN", wealth = 0):
+    def __init__(self, name, gameclass, stats: list, profList: list, level = 1, favColor = "GREEN", wealth = 0, inventory = []):
         self.name = name
-        self.gameClass = gameClasses.gameClasses[gameclass]
-        self.level = level
         self.favColor = favColor
         self.color = consts.colors[favColor]
         self.pname = f"{consts.color.BOLD}{self.color}{self.name}{consts.color.END}"
-        self.abilities = {
+
+        self.gameClass = classBasics.classlist[gameclass]
+        self.gameClassName = gameclass
+        self.level = level
+        
+        self.stats = {
             "str": stats[0],
             "dex": stats[1],
             "con": stats[2],
             "int": stats[3],
             "wis": stats[4],
             "cha": stats[5]}
-        self.str = self.abilities["str"]
-        self.dex = self.abilities["dex"]
-        self.con = self.abilities["con"]
-        self.int = self.abilities["int"]
-        self.wis = self.abilities["wis"]
-        self.cha = self.abilities["cha"]
+
         self.hitDice = str(self.level) + self.gameClass.hitDie
+
         self.pb = consts.profBonus[level]
         self.proficiencies = profList
+
         self.rawWealth = wealth # Wealth measured in copper pieces
+        self.inventory = inventory
+        
 
     def check(self, check: str, advantage = ""):
         ability.getSkillCheckRoll(self, check, advantage)
@@ -91,17 +93,22 @@ class Character:
 {color.BOLD}{coins['sp']}{color.END} {text.SILVER}
 {color.BOLD}{coins['cp']}{color.END} {text.COPPER}  
         '''
-        return response
+        print(response)
+    
+    def getInventory(self):
+        print(f"{self.pname}'s inventory contains the following:\n")
+        for i in self.inventory:
+            print(i.name)
 
     def getStats(self):
         response = f'''
 {self.pname}'s Ability Scores: 
 
-Strength:     {self.str} ({ability.abilityMod(self.str)})
-Dexterity:    {self.dex} ({ability.abilityMod(self.dex)})
-Constitution: {self.con} ({ability.abilityMod(self.con)})
-Intelligence: {self.int} ({ability.abilityMod(self.int)})
-Wisdom:       {self.wis} ({ability.abilityMod(self.wis)})
-Charisma:     {self.cha} ({ability.abilityMod(self.cha)})
+Strength:     {self.stats['str']} ({ability.abilityMod(self.stats['str'])})
+Dexterity:    {self.stats['dex']} ({ability.abilityMod(self.stats['dex'])})
+Constitution: {self.stats['con']} ({ability.abilityMod(self.stats['con'])})
+Intelligence: {self.stats['int']} ({ability.abilityMod(self.stats['int'])})
+Wisdom:       {self.stats['wis']} ({ability.abilityMod(self.stats['wis'])})
+Charisma:     {self.stats['cha']} ({ability.abilityMod(self.stats['cha'])})
 '''
-        return response
+        print(response)

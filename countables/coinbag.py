@@ -1,4 +1,18 @@
-from consts import coinValue
+coinValue = {
+    "cp": 1,    # Copper Piece
+    "sp": 10,   # Silver Piece
+    "ep": 50,   # Electrum Piece
+    "gp": 100,  # Gold Piece
+    "pp": 1000  # lol
+}
+
+coinNames = {
+    "cp": "Copper",
+    "sp": "Silver",
+    "ep": "Electrum",
+    "gp": "Gold",
+    "pp": "Platinum"
+}
 
 def rawWealth(Copper = 0, Silver = 0, Electrum = 0, Gold = 0, Platinum = 0):
     newWealth = 0
