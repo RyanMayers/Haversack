@@ -46,3 +46,17 @@ def listSaved():
         iters -= 1
         index += 1
     return response
+
+def listSavedDict():
+    with open(saveFile) as file:
+        d = json.load(file)
+        file.close
+    iters = len(d.keys()) - 1
+    index = 0
+    response = {}
+    while iters >= 0:
+        row = d[str(index)]
+        response[index] = f"{row['name']}, Level-{row['level']} {row['gameClass']}"
+        iters -= 1
+        index += 1
+    return response

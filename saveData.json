@@ -15,7 +15,8 @@
     "profList": ["Perception", "Insight", "Medicine", "Religion"], 
     "level": 9, 
     "favColor": "GREEN", 
-    "wealth": 20748},
+    "wealth": 20748,
+    "inventory": []},
 "2": {
     "name": "Wynlamin", 
     "gameClass": "Warlock", 
@@ -23,7 +24,8 @@
     "profList": ["Perception", "Insight", "Medicine", "Religion"], 
     "level": 13, 
     "favColor": "GREEN", 
-    "wealth": 20748},
+    "wealth": 20748,
+    "inventory": []},
 "3": {
     "name": "Flynlamin", 
     "gameClass": "Fighter", 
@@ -31,7 +33,8 @@
     "profList": ["Perception", "Insight", "Medicine", "Religion"], 
     "level": 2, 
     "favColor": "GREEN", 
-    "wealth": 20748},
+    "wealth": 20748,
+    "inventory": []},
 "4": {
     "name": "Archie Limegold", 
     "gameClass": "Bard", 
@@ -39,5 +42,6 @@
     "profList": ["Perception", "Insight", "Medicine", "Religion"], 
     "level": 20, 
     "favColor": "GREEN", 
-    "wealth": 20748}
+    "wealth": 20748,
+    "inventory": []}
 }

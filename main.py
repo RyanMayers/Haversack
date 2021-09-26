@@ -58,16 +58,6 @@ Which saved character would you like to load?
 print(f'''
 {consts.color.BOLD}Welcome to Haversack!{consts.color.END}
 
-
-
-
-
-
-
-
-
-
-
 What would you like to do?
 ''')
 

@@ -1,9 +1,10 @@
-from tkinter import Frame, Grid, Label, GROOVE
+from tkinter import *
+from tkinter.ttk import *
 from countables import coinbag as cb
 
 class coinframe:
     def __init__(self, character, parent):
-        self.frame = Frame(parent, borderwidth=5, relief=GROOVE)
+        self.frame = Frame(parent, borderwidth=5, relief=GROOVE, padding=30)
 
         self.frame.columnconfigure(0, weight=3)
         self.frame.columnconfigure(1, weight=3)
@@ -27,11 +28,11 @@ class coinframe:
             self.array = cb.sortCoins(Copper=character.rawWealth)
         
         # Column 1: Coin Denominations
-        self.cpLabel = Label(self.frame, text="CP:", font=("EB Garamond", 18), bd=2)
-        self.spLabel = Label(self.frame, text="SP:", font=("EB Garamond", 18), bd=2)
-        self.epLabel = Label(self.frame, text="EP:", font=("EB Garamond", 18), bd=2)
-        self.gpLabel = Label(self.frame, text="GP:", font=("EB Garamond", 18), bd=2)
-        self.ppLabel = Label(self.frame, text="PP:", font=("EB Garamond", 18), bd=2)
+        self.cpLabel = Label(self.frame, text="CP:", font=("EB Garamond", 18), padding=2)
+        self.spLabel = Label(self.frame, text="SP:", font=("EB Garamond", 18), padding=2)
+        self.epLabel = Label(self.frame, text="EP:", font=("EB Garamond", 18), padding=2)
+        self.gpLabel = Label(self.frame, text="GP:", font=("EB Garamond", 18), padding=2)
+        self.ppLabel = Label(self.frame, text="PP:", font=("EB Garamond", 18), padding=2)
 
         self.cpLabel.grid(column=0, row=0)
         self.spLabel.grid(column=0, row=1)
@@ -41,11 +42,11 @@ class coinframe:
         
 
         # Column 2: Coin Values
-        self.cpLabel = Label(self.frame, text=str(self.array["cp"]), font=("EB Garamond", 24), bd=2)
-        self.spLabel = Label(self.frame, text=str(self.array["sp"]), font=("EB Garamond", 24), bd=2)
-        self.epLabel = Label(self.frame, text=str(self.array["ep"]), font=("EB Garamond", 24), bd=2)
-        self.gpLabel = Label(self.frame, text=str(self.array["gp"]), font=("EB Garamond", 24), bd=2)
-        self.ppLabel = Label(self.frame, text=str(self.array["pp"]), font=("EB Garamond", 24), bd=2)
+        self.cpLabel = Label(self.frame, text=str(self.array["cp"]), font=("EB Garamond", 24), padding=2)
+        self.spLabel = Label(self.frame, text=str(self.array["sp"]), font=("EB Garamond", 24), padding=2)
+        self.epLabel = Label(self.frame, text=str(self.array["ep"]), font=("EB Garamond", 24), padding=2)
+        self.gpLabel = Label(self.frame, text=str(self.array["gp"]), font=("EB Garamond", 24), padding=2)
+        self.ppLabel = Label(self.frame, text=str(self.array["pp"]), font=("EB Garamond", 24), padding=2)
 
         self.cpLabel.grid(column=1, row=0)
         self.spLabel.grid(column=1, row=1)
