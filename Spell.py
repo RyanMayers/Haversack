@@ -116,3 +116,27 @@ def printSpell (spell):
     print("Components:   " + comp)
     print("Duration:     " + str(data["duration"]) + "\n\n")
     print(color.UNDERLINE + "Description:\n\n" + color.END + desc + hl)
+
+def sani(yuck):
+    return yuck.replace(" ","-").replace("'","").replace("/","-").lower()
+
+def spellInfo(spell:str):
+    data = spellLookup(sani(spell))
+    desc = "\n\n".join(data["desc"])
+    comp = ", ".join(data["components"])
+    if "higher_level" in data:
+        hl = "\n\n".join(data["higher_level"])
+    else:
+        hl = ""
+    response = f"""
+    {data["name"]}\n
+    {p.ordinal(data["level"])}-level {data["school"]["index"]}\n
+    Casting Time: {data["casting_time"]}
+    Range:        {data["range"]}
+    Components:   {comp}
+    Duration:     {str(data["duration"])} \n\n
+    Description:\n\n
+    {desc}
+    {hl}
+    """
+    return response

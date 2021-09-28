@@ -2,7 +2,7 @@ from tkinter import *
 from tkinter.ttk import *
 import saveAndLoad as sl
 import ability as ab
-import frame_ability, frame_wealth, frame_TabSaveLoad
+import frame_ability, frame_wealth, frame_TabSaveLoad, frame_TabSpellbook
 
 current = None
 
@@ -62,11 +62,16 @@ def load(index):
 # Now for the middle section. This is all the interactible stuff.
 middle = Notebook(window)
 
+# Add the Save And Load tab.
 SLclass = frame_TabSaveLoad.slframe(current, middle, load)
 tabSaveAndLoad = SLclass.build(current)
 
+# Add the Spellbook tab.
+SpellClass = frame_TabSpellbook.spellFrame(current, middle)
+tabSpellbook = SpellClass.frame
+
+# Tabs not yet added. Just blank.
 tabNotes = Frame(middle, relief=GROOVE)
-tabSpellbook = Frame(middle, relief=GROOVE)
 tabAbility = Frame(middle, relief=GROOVE)
 tabInventory = Frame(middle, relief=GROOVE)
 tabWealth = Frame(middle, relief=GROOVE)
